@@ -10,8 +10,15 @@ container.parentNode.style.height = '100vh';
 
 const pixelRow = document.getElementById(['pixel-row']);
 
+// button functions
+const btn = document.getElementById('gridGen');
+btn.addEventListener('click', function(e) {
+    let val = prompt("What size grid would you like to make?");
+    makeGrid(val);
+});
+
+
 // JS Grid Divs
-makeGrid(16);
 // let gridSize = 16;
 // for (let i = 0; i < gridSize; i++) {
 //     const grid = document.createElement('div');
