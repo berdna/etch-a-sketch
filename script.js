@@ -8,13 +8,39 @@ container.style.width = '500px';
 container.style.height = '500px';
 container.parentNode.style.height = '100vh';
 
+const pixelRow = document.getElementById(['pixel-row']);
+
 // JS Grid Divs
-let gridSize = 16 * 16;
-for (let i = 0; i < gridSize; i++) {
-    const grid = document.createElement('div');
-    grid.classList.add('grid-item');
-    container.appendChild(grid);
+makeGrid(16);
+// let gridSize = 16;
+// for (let i = 0; i < gridSize; i++) {
+//     const grid = document.createElement('div');
+//     grid.classList.add('grid-item');
+//     pixelRow.appendChild(grid);
+// }
+function makeGrid(num) {
+    for(let i = 0; i < num; i++) {
+        const row = document.createElement('div');
+        row.setAttribute('id', 'pixel-row');
+        container.appendChild(row);
+        for(let k = 0; k < num; k++) {
+            const pixel = document.createElement('div');
+            pixel.classList.add('grid-item');
+            pixel.addEventListener('mouseover', function(e) {
+                e.target.style['background-color'] = 'blue';
+            });
+            row.appendChild(pixel);
+        }
+    }
 }
+
+// pixel.addEventListener('hover', function(e) {
+//     e.target.style[background-color] = 'blue';
+// });
+
+// function randColor () {
+    
+// }
 // function makeGrid(num) {
 //     let gridSize = num * num;
 
